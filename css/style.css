@@ -2489,3 +2489,56 @@ button {
         line-height: 1.5;
     }
 }
+
+/* =========================================================
+   REAL WORK / FULL PORTFOLIO PAGE
+========================================================= */
+.proof-card .portfolio-image, .full-proof-card button { border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; width: 100%; }
+.proof-card .portfolio-image { padding: 0; background: #0d1421; }
+.proof-card .portfolio-image > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .45s ease, filter .45s ease; }
+.proof-card:hover .portfolio-image > img { transform: scale(1.035); filter: brightness(.86); }
+.proof-card .portfolio-overlay > i { flex-shrink: 0; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.08); }
+.portfolio-preview-grid .portfolio-image { min-height: 360px; }
+.portfolio-preview-grid .portfolio-large .portfolio-image { min-height: 440px; }
+.portfolio-preview-grid .portfolio-wide .portfolio-image { min-height: 380px; }
+
+.portfolio-page-main { min-height: 100vh; background: var(--bg); }
+.portfolio-page-hero { position: relative; padding: 165px 0 85px; overflow: hidden; border-bottom: 1px solid var(--border); }
+.portfolio-page-intro { position: relative; z-index: 2; max-width: 950px; }
+.portfolio-page-intro h1 { max-width: 900px; font-family: "Manrope", sans-serif; font-size: clamp(46px,7vw,76px); line-height: 1.04; letter-spacing: -3px; margin-bottom: 22px; }
+.portfolio-page-intro p { max-width: 760px; color: var(--text-soft); font-size: 16px; line-height: 1.85; margin-bottom: 30px; }
+.portfolio-page-glow { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events:none; }
+.portfolio-page-glow.glow-one { width: 440px; height: 440px; background:#22d3ee; opacity:.11; left:-180px; top:20px; }
+.portfolio-page-glow.glow-two { width: 520px; height: 520px; background:#8b5cf6; opacity:.12; right:-220px; top:10px; }
+.portfolio-gallery-section { background: #090e19; }
+.portfolio-filters { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:38px; }
+.portfolio-filter { padding:10px 16px; border-radius:999px; background:rgba(255,255,255,.035); border:1px solid var(--border); color:#94a3b8; font-size:12px; font-weight:600; transition:.3s ease; }
+.portfolio-filter:hover, .portfolio-filter.active { color:#fff; background:linear-gradient(135deg,rgba(34,211,238,.16),rgba(59,130,246,.16),rgba(139,92,246,.16)); border-color:rgba(96,165,250,.32); }
+.full-portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.full-proof-card { border:1px solid var(--border); border-radius:18px; overflow:hidden; background:rgba(255,255,255,.025); transition:.35s ease; }
+.full-proof-card:hover { transform:translateY(-6px); border-color:rgba(96,165,250,.28); box-shadow:0 24px 60px rgba(0,0,0,.28); }
+.full-proof-card.is-hidden { display:none; }
+.full-proof-card button { background:transparent; }
+.full-proof-image { position:relative; height:225px; background:#0d1421; overflow:hidden; border-bottom:1px solid var(--border); }
+.full-proof-image img { width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .45s ease, filter .45s ease; }
+.full-proof-card:hover .full-proof-image img { transform:scale(1.04); filter:brightness(.82); }
+.proof-zoom { position:absolute; right:14px; top:14px; width:38px; height:38px; display:grid; place-items:center; border-radius:50%; background:rgba(7,11,20,.78); border:1px solid rgba(255,255,255,.12); opacity:0; transform:translateY(-5px); transition:.3s ease; }
+.full-proof-card:hover .proof-zoom { opacity:1; transform:translateY(0); }
+.full-proof-content { padding:20px; }
+.full-proof-content span { color:#7dd3fc; font-size:10px; font-weight:700; letter-spacing:.4px; }
+.full-proof-content h2 { font-size:16px; margin:6px 0 8px; }
+.full-proof-content p { color:#64748b; font-size:11px; line-height:1.7; }
+.portfolio-page-cta { margin-top:55px; padding:34px; border:1px solid var(--border); border-radius:20px; display:flex; align-items:center; justify-content:space-between; gap:25px; background:linear-gradient(135deg,rgba(34,211,238,.055),rgba(139,92,246,.07)); }
+.portfolio-page-cta p { font-family:"Manrope",sans-serif; font-size:21px; font-weight:700; }
+.compact-footer { padding-top:20px; }
+
+.proof-lightbox { position:fixed; inset:0; z-index:3000; display:grid; place-items:center; padding:35px; background:rgba(2,6,14,.94); backdrop-filter:blur(12px); opacity:0; visibility:hidden; transition:.3s ease; }
+.proof-lightbox.open { opacity:1; visibility:visible; }
+.proof-lightbox-inner { width:min(1200px,94vw); max-height:88vh; text-align:center; }
+.proof-lightbox-inner img { width:100%; max-height:80vh; object-fit:contain; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:#fff; box-shadow:0 30px 90px rgba(0,0,0,.55); }
+.proof-lightbox-inner p { margin-top:14px; color:#cbd5e1; font-size:13px; }
+.proof-lightbox-close { position:fixed; top:22px; right:25px; width:44px; height:44px; border-radius:50%; background:#111827; border:1px solid var(--border); color:white; font-size:18px; z-index:2; }
+body.lightbox-open { overflow:hidden; }
+
+@media (max-width: 1000px) { .full-portfolio-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width: 680px) { .portfolio-page-hero { padding:125px 0 65px; } .portfolio-page-intro h1 { font-size:44px; letter-spacing:-2px; } .full-portfolio-grid { grid-template-columns:1fr; } .full-proof-image { height:215px; } .portfolio-page-cta { flex-direction:column; align-items:flex-start; } .proof-lightbox { padding:16px; } }
